@@ -13,12 +13,12 @@ def get_data(path):
     x = []
     y = []
     for label in labels:
-        images_path = os.path.normpath(os.path.join(path, label))  # Ensure normalized paths
+        images_path = os.path.normpath(os.path.join(path, label))
         if not os.path.exists(images_path):
             print(f"Path does not exist: {images_path}")
             continue
         for image in os.listdir(images_path):
-            img_path = os.path.normpath(os.path.join(images_path, image))  # Ensure normalized paths
+            img_path = os.path.normpath(os.path.join(images_path, image))
             img = cv2.imread(img_path)
             if img is None:
                 print(f"Failed to load image: {img_path}")
@@ -33,7 +33,6 @@ def get_data(path):
     return x, y
 
 
-# Load data from directories (adjust paths as needed)
 train_path = './train'
 test_path = './test'
 val_path = './val'
